@@ -8,11 +8,11 @@ timeout = 60
 
 username = ''
 password = ''
-topic = "test_topic"
+topic = "test_topic/1"
 
 def on_connect(client, userdata, flag, rc):
     print("Connected with result code "+str(rc))
-    client.publish(topic, "1") 
+    client.publish(topic, "6") 
 
 def on_publish(client, userdata, result):
     print("data published \n")
