@@ -29,6 +29,7 @@ def on_message(client, userdata, msg):
     global read_payload
     try:
         read_payload = json.loads(msg.payload.decode('utf-8'))
+        print(read_payload["sensor"])
     except json.decoder.JSONDecodeError:
         # includes simplejson.decoder.JSONDecodeError
         print('Decoding JSON has failed')
@@ -43,5 +44,6 @@ client.connect(broker, port, timeout)
 client.loop_start()
 
 while True:
-    print("value " + str(read_payload))
+    # print("value " + str(read_payload))
+    # print(str(read_payload["sensor"]))
     time.sleep(1)   
