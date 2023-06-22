@@ -2,17 +2,19 @@ import paho.mqtt.client as paho
 from paho import mqtt
 
 # define static variable
-broker = "mqtt-dashboard.com"
+# broker = "mqtt-dashboard.com"
+broker = "industrial.api.ubidots.com"
 port = 1883
 timeout = 60
 
-username = ''
+username = 'your-token'
 password = ''
-topic = "test_topic/1"
+# topic = "test_topic/1"
+topic = "/v2.0/devices/testing"
 
 def on_connect(client, userdata, flag, rc):
     print("Connected with result code "+str(rc))
-    client.publish(topic, "6") 
+    client.publish(topic, '{"test":14}', qos=0) 
 
 def on_publish(client, userdata, result):
     print("data published \n")
